@@ -1,0 +1,81 @@
+<doctype html>
+  <head>
+<title>Displaying an image with canvas</title>
+</head>
+<canvas width="319" height="160"></canvas>
+<script >
+// get a reference to the canvas
+var canvas = document.querySelector("canvas");
+// get a reference to the canvas's drawing surface
+var drawingSurface = canvas.getContext("2d");
+// create a monsterImage variable to hold the new image
+var monsterImage = new Image();
+// Add a listener to the image to call the render
+// function when the image has loaded
+monsterImage.addEventListener("load", loadHandler, false);
+// Assign the image's src property to the image you want to load
+monsterImage.src = "img/monsterStates.png";
+function imageLoadHandler()
+{
+  // Draw the monsterImage onto the drawingSurface
+  drawingSurface.drawImage(monsterImage, 0, 0);
+}
+
+// Before you can display anything in the canvas you have
+// you have to access this surface with JavaScript
+
+// Get a reference to the canvas HTML tag
+var canvas = document.querySelector("canvas");
+
+// Access the canvas's drawing surface
+var drawingSurface = canvas.getContext("2d");
+
+// drawing surface (blank piece of paper) is the same size as the canvas
+
+
+// Create a new image object
+var monsterImage = new Image(); // newImage is a built-in feature of JavaScript that creates a blank, invisible <img> tag directly on your program
+
+// add a load event listener to the image. When it's finished loading, it will call the loadHandler
+monsterImage.addEventListener("load", loadHandler, false);
+
+monsterImage.src = "img/monsterStates.png";
+
+// Call loadHandler when image is finished loading
+function loadHandler()
+{
+  drawingSurface.drawImage
+  (
+    monsterImage, 
+    159, 0, 159, 159, 
+    0, 0, 159, 159
+  );
+}
+
+// obj with 2 states
+var monster =
+{
+  //Define the monster's states
+
+  NORMAL: 0,
+  SCARED: 1,
+
+  //Set its initial state
+
+  state: 0
+};
+
+//Change the monster's state by pressing a key
+
+window.addEventListener("keydown", keydownHandler, false);
+
+function keydownHandler(event)
+{
+  //Change the monster's state
+  monster.state = monster.SCARED;
+
+  //Display the new state
+  console.log("The monster's new state: " + monster.state);
+}
+
+</script>
